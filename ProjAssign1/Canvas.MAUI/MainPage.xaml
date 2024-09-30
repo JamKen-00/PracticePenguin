@@ -1,0 +1,39 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Canvas.MAUI.MainPage">
+
+    <!-- Darker background color and main layout -->
+    <StackLayout BackgroundColor="#2c3e50" Padding="20" VerticalOptions="CenterAndExpand">
+
+        <!-- Heading -->
+        <Label Text="Welcome to Practice Penguin!" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+        <!-- Instructions -->
+        <Label Text="Select a page to go:" FontSize="18" TextColor="LightGray" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+        <!-- Buttons with rounded corners and gradient background using Frames -->
+        <Frame CornerRadius="20" BackgroundColor="#3498db" Padding="10" Margin="0,0,0,10">
+            <Button
+                x:Name="ClientButton"
+                Text="Clients"
+                Clicked="GoToClientsPage"
+                FontSize="20"
+                TextColor="White"
+                HorizontalOptions="Center" />
+        </Frame>
+
+        <Frame CornerRadius="20" BackgroundColor="#e74c3c" Padding="10">
+            <Button
+                x:Name="ProjectButton"
+                Text="Projects"
+                Clicked="GoToProjectsPage"
+                FontSize="20"
+                TextColor="White"
+                HorizontalOptions="Center" />
+        </Frame>
+
+        <!-- Image or Icon for better visual appeal -->
+        <Image Source="logo.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="Center" Margin="0,30,0,0" />
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Canvas.MAUI.ProjectPage">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        
+        
+        <!-- THE TOP PANEL -->
+        <BoxView Grid.Row="0" BackgroundColor="DarkCyan" HeightRequest="100" />
+        <StackLayout Grid.Row="0" Orientation="Horizontal" Spacing="10" VerticalOptions="Start">
+            <Label Text="PROJECTS" FontSize="20" BackgroundColor="AliceBlue"/>
+            <Button Text="List" FontSize="16" BackgroundColor="WhiteSmoke" TextColor="Black" Clicked="listButtonClicked" />
+            <Button Text="Create" FontSize="16" BackgroundColor="Yellow" TextColor="Black" Clicked="ProjectCreator"/>
+            <!---<Button Text="Edit" FontSize="16" BackgroundColor="Green" TextColor="Black" /> -->
+        </StackLayout>
+
+        <!-- THE SIDE PANEL -->
+        <StackLayout x:Name="SidePanel" HorizontalOptions="Start" Grid.Column="0" Grid.Row="1" BackgroundColor="LightGray" WidthRequest="200" IsVisible="False">
+            <Label Text="LIST" BackgroundColor="DarkGoldenrod" TextColor="White" HorizontalOptions="Start" WidthRequest="200" />
+            <ListView ItemsSource="{Binding Projects}" ItemTapped="ProjectSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding LongName}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+        </StackLayout>
+
+        <!-- THE MAIN BOX -->
+        <StackLayout x:Name="MainBox" Grid.Column="5" Grid.Row="1"  Spacing="5" HorizontalOptions="Center">
+            <Label Text="Main" BackgroundColor="DarkGrey" TextColor="White" WidthRequest="1024" />
+            <!-- Display client info -->
+            <Entry x:Name="ProjectIdLabel" BackgroundColor="White" TextColor="Black" />
+            <Entry x:Name="ProjectShortNameLabel" BackgroundColor="White" TextColor="Black" />
+            <Entry x:Name="ProjectLongNameLabel" BackgroundColor="White" TextColor="Black" />
+            <Entry x:Name="ProjectOpenDateLabel" BackgroundColor="White" TextColor="Black" />
+            <Entry x:Name="ProjectEmployeeLabel" BackgroundColor="White" TextColor="Black" />
+            <Entry x:Name="ProjectBillLabel" BackgroundColor="White" TextColor="Black" />
+            <Button Text="Delete" FontSize="16" BackgroundColor="Red" TextColor="Black" Clicked="DeleteProjectSelected" />
+            <Button Text="Update" FontSize="16" BackgroundColor="AliceBlue" TextColor="Black" Clicked="UpdateProjectSelected" />
+        </StackLayout>
+    </Grid>
+
+
+</ContentPage>

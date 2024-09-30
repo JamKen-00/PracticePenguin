@@ -1,0 +1,80 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Canvas.MAUI.FirstPage">
+
+    <AbsoluteLayout>
+        <!-- Left Side: Lawyers Image Bar -->
+        <Image
+            Source="lawyers.jpg"
+            Aspect="AspectFill"
+            AutomationProperties.IsInAccessibleTree="True"
+            AutomationProperties.Name="Lawyers"
+            AutomationProperties.HelpText="Tap to view lawyers."
+            x:Name="LawyersImage"
+            AbsoluteLayout.LayoutBounds="0,0,0.5,1"
+            AbsoluteLayout.LayoutFlags="All"
+            >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToLawyersPage" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- Right Side: Clients Image Bar -->
+        <Image
+            Source="clients.jpg"
+            Aspect="AspectFill"
+            AutomationProperties.IsInAccessibleTree="True"
+            AutomationProperties.Name="Clients"
+            AutomationProperties.HelpText="Tap to view clients."
+            x:Name="ClientsImage"
+            AbsoluteLayout.LayoutBounds="1,0,0.5,1"
+            AbsoluteLayout.LayoutFlags="All"
+            >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToClientsPage" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- Labels -->
+        <Label
+            Text="EMPLOYEE VIEW"
+            FontSize="50"
+            TextColor="White"
+            BackgroundColor="Transparent"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            AbsoluteLayout.LayoutBounds="0,0,0.5,1"
+            AbsoluteLayout.LayoutFlags="All"
+        >
+            <Label.Triggers>
+                <DataTrigger TargetType="Label" Binding="{Binding Source={RelativeSource Mode=Self}, Path=IsFocused}" Value="True">
+                    <Setter Property="BackgroundColor" Value="DarkSlateGray" />
+                </DataTrigger>
+            </Label.Triggers>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToLawyersPage" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            Text="CLIENT VIEW"
+            FontSize="50"
+            TextColor="White"
+            BackgroundColor="Transparent"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            AbsoluteLayout.LayoutBounds="1,0,0.5,1"
+            AbsoluteLayout.LayoutFlags="All"
+        >
+            <Label.Triggers>
+                <DataTrigger TargetType="Label" Binding="{Binding Source={RelativeSource Mode=Self}, Path=IsFocused}" Value="True">
+                    <Setter Property="BackgroundColor" Value="DarkSlateGray" />
+                </DataTrigger>
+            </Label.Triggers>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToClientsPage" />
+            </Label.GestureRecognizers>
+        </Label>
+    </AbsoluteLayout>
+
+</ContentPage>
